@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+    <!--launch jackal world-->
+    <include file="$(find udacity_bot)/launch/udacity_world.launch"/>
+    <!--launch map_server-->
+    <include file="$(find udacity_bot)/launch/map_server.launch"/>
+    <!--launch move base-->
+    <include file="$(find udacity_bot)/launch/move_base.launch"/>
+    <!--launch amcl-->
+    <include file="$(find udacity_bot)/launch/amcl.launch"/>
+    <!-- Place map frame at odometry frame -->
+    <!-- <node pkg="tf" type="static_transform_publisher" name="map_odom_broadcaster"
+          args="0 0 0 0 0 0 map odom 100"/> -->
+    <!--launch rviz-->
+    <arg name="rviz_file" default="$(find udacity_bot)/launch/Rvizconfig.rviz"/>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz_file)" respawn="false"/>
+
+</launch>

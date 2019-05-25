@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Localization-->
+  <node pkg="amcl" type="amcl" name="amcl" output="screen">
+    <remap from="scan" to="udacity_bot/laser/scan"/>
+    <param name="odom_frame_id" value="odom"/>
+    <param name="odom_model_type" value="diff-corrected"/>
+    <param name="base_frame_id" value="robot_footprint"/>
+    <param name="global_frame_id" value="map"/>
+    <param name="min_particles" value="10" />
+    <param name="max_particles" value="500" />
+    <param name="transform_tolerance" value="0.1" />
+    <param name="resample_interval" value="1" />
+    <!-- 1 expected noise in odometry's rotation estimate from the rotational component -->
+    <param name="odom_alpha1" value="0.05"/> <!-- 0.2 -->
+    <!-- 2 expected noise in odometry's rotation estimate from the translational component -->
+    <param name="odom_alpha2" value="0.05"/> <!-- 0.2 -->
+    <!-- 3 expected noise in odometry's translation estimate from the translational component -->
+    <param name="odom_alpha3" value="0.05"/> <!-- 0.2 -->
+    <!-- 4 expected noise in odometry's translation estimate from the rotational component -->
+    <param name="odom_alpha4" value="0.05"/> <!-- 0.2 -->
+    <param name="update_min_a" value="0.01"/> <!-- 0.2 -->
+    <param name="update_min_d" value="0.01"/> <!-- 0.2 -->
+  </node>
+</launch>
